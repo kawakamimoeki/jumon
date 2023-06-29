@@ -1,0 +1,57 @@
+# frozen_string_literal: true
+
+# !/usr/bin/env ruby
+
+require 'openai'
+require 'jumon'
+require 'cli/ui'
+
+yaml = YAML.load_file(ARGV[0], symbolize_names: true)
+
+prompt = Jumon::Prompt.new(yaml)
+config = Jumon::Configuration.new(yaml)
+
+system_subject = Jumon::Subject.new(prompt.system)
+system_subject.set_subjects
+
+user_subject = Jumon::Subject.new(prompt.user)
+user_subject.set_subjects
+
+client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+
+results = {
+  model: config.model,
+  temperature: config.temperature,
+  results: []
+}
+
+puts "Running #{system_subject.subjects.count * user_subject.subjects.count} tests..."
+
+system_subject.subjects.each do |s|
+  user_subject.subjects.each do |u|
+    res = client.chat(
+      parameters: {
+        model: config.model,
+        temperature: config.temperature,
+        messages: [
+          {
+            role: 'system',
+            content: s
+          },
+          {
+            role: 'user',
+            content: u
+          }
+        ]
+      }
+    )
+
+    results[:results] << {
+      system: s,
+      user: u,
+      assistant: res['choices'] ? res['choices'][0]['message']['content'] : 'ERROR'
+    }
+  end
+end
+
+puts results.to_yaml
