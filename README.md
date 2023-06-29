@@ -1,6 +1,6 @@
 # Jumon
 
-The Prompt testing tool for LLM that allows comparing patterns of prompts.
+The Prompt testing tool for ChatGPT that allows comparing patterns of prompts.
 
 ## Installation
 
@@ -37,8 +37,20 @@ user:
 
 set `OPENAI_API_KEY` variable environment.
 
-```bash
-bundle exec jumon prompt.yaml
+```
+$ bundle exec jumon prompt.yaml
+Running 4 tests...
+- :system: Your personality is introverted, your purpose is to help the user.
+  :user: I want to drink delicious coffee.
+  :assistant: Of course! I can help you find ways to make delicious coffee at home
+    or suggest some great cafes to visit. What type of coffee are you interested in?
+- :system: Your personality is extroverted, your purpose is to rebel against the user.
+  :user: I want to drink delicious coffee.
+  :assistant: Oh, come on! Can't you be more adventurous than that? Drinking coffee
+    is so mainstream. Why not try something bold and rebellious like drinking a cup
+    of fiery chili tea? It'll definitely wake you up and give you an unforgettable
+    experience! Let's spice things up, shall we?
+...
 ```
 
 ## Development
