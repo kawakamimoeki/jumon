@@ -5,7 +5,20 @@ require 'openai'
 require 'jumon'
 require 'cli/ui'
 
-yaml = YAML.load_file(ARGV[0], symbolize_names: true)
+prompts_path = ARGV[0]
+
+case prompts_path
+when nil, "-h", "--help"
+  $stderr.puts "USAGE: jumon <path>"
+  exit 1
+end
+
+unless File.exist?(prompts_path)
+  $stderr.puts "ERROR: file #{prompts_path} does not exist!"
+  exit 1
+end
+
+yaml = YAML.load_file(prompts_path, symbolize_names: true)
 
 prompt = Jumon::Prompt.new(yaml)
 config = Jumon::Configuration.new(yaml)
