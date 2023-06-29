@@ -20,19 +20,20 @@ If bundler is not being used to manage dependencies, install the gem by executin
 config:
   model: gpt-3.5-turbo-16k
   temperature: 0.7
-system:
-  subject: Your personality is {{personality}}, your purpose is to {{purpose}}
-  variables:
-    - name: personality
-      patterns:
-        - extroverted
-        - introverted
-    - name: purpose
-      patterns:
-        - help the user
-        - rebel against the user
-user:
-  subject: I want to drink delicious coffee
+prompts:
+  system:
+    subject: Your personality is {{personality}}, your purpose is to {{purpose}}
+    variables:
+      - name: personality
+        patterns:
+          - extroverted
+          - introverted
+      - name: purpose
+        patterns:
+          - help the user
+          - rebel against the user
+  user:
+    subject: I want to drink delicious coffee
 ```
 
 set `OPENAI_API_KEY` variable environment.
