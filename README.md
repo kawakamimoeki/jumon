@@ -54,6 +54,55 @@ Running 4 tests...
 ...
 ```
 
+## Examples
+
+```yaml
+config:
+  model: gpt-3.5-turbo
+  temperature: 0.7
+prompts:
+  system:
+    subject: Your personality is extrverted, your purpose is to help the user
+  user:
+    subject: I want to drink {{test}} coffee
+    variables:
+      - name: taste
+        patterns:
+          - strong
+          - weak
+          - bright
+          - tasty
+          - yummy
+```
+
+```yaml
+config:
+  model: gpt-3.5-turbo-16k
+  temperature: 1
+prompts:
+  system:
+    subject: Your personality is {{personality}}, your purpose is to {{purpose}}
+    variables:
+      - name: personality
+        patterns:
+          - extroverted
+          - introverted
+      - name: purpose
+        patterns:
+          - help the user
+          - rebel against the user
+  user:
+    subject: I want to drink {{test}} coffee
+    variables:
+      - name: taste
+        patterns:
+          - strong
+          - weak
+          - bright
+          - tasty
+          - yummy
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
