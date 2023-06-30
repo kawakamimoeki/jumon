@@ -64,7 +64,7 @@ prompts:
   system:
     subject: Your personality is extrverted, your purpose is to help the user
   user:
-    subject: I want to drink {{test}} coffee
+    subject: I want to drink {{taste}} coffee
     variables:
       - name: taste
         patterns:
@@ -92,7 +92,7 @@ prompts:
           - help the user
           - rebel against the user
   user:
-    subject: I want to drink {{test}} coffee
+    subject: I want to drink {{taste}} coffee
     variables:
       - name: taste
         patterns:
