@@ -1,5 +1,9 @@
 # Jumon
 
+![v](https://badgen.net/rubygems/v/jumon)
+![dt](https://badgen.net/rubygems/dt/jumon)
+![license](https://badgen.net/github/license/moekidev/jumon)
+
 The Prompt testing tool for ChatGPT that allows comparing patterns of prompts.
 
 ## Installation
