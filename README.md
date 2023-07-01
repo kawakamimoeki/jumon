@@ -39,7 +39,7 @@ prompts:
 set `OPENAI_API_KEY` variable environment.
 
 ```
-$ bundle exec jumon prompt.yaml
+$ jumon prompt.yaml
 Running 4 tests...
 - :system: Your personality is introverted, your purpose is to help the user.
   :user: I want to drink delicious coffee.
