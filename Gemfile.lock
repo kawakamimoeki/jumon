@@ -3,14 +3,14 @@ PATH
   specs:
     jumon (0.1.2)
       cli-ui (~> 2.2)
-      ruby-openai (~> 4.1)
+      ruby-openai (>= 4.1, < 6.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     cli-ui (2.2.3)
     diff-lcs (1.5.0)
-    faraday (2.7.8)
+    faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-multipart (1.0.4)
@@ -31,7 +31,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    ruby-openai (4.2.0)
+    ruby-openai (5.1.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
     ruby2_keywords (0.0.5)

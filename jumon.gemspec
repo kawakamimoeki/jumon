@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "ruby-openai", "~> 4.1"
+  spec.add_dependency "ruby-openai", ">= 4.1", "< 6.0"
   spec.add_dependency "cli-ui", "~> 2.2"
 
   # For more information and examples about making a new gem, check out our
